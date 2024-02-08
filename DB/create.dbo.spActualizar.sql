@@ -13,7 +13,7 @@ BEGIN
 		UPDATE BdiExamen.dbo.tblExamen
 		SET
 			Nombre = @Nombre,
-			Decripcion = @Descripcion
+			Descripcion = @Descripcion
 		WHERE
 			idExamen = @ID;
 		SELECT 0 AS ReturnCode, 'Registro actualizado satisfactoriamente' AS ErrorDescription

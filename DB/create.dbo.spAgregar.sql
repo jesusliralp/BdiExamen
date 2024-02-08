@@ -10,7 +10,7 @@ BEGIN
 	SET LANGUAGE SPANISH;
 	SET NOCOUNT ON;
 	BEGIN TRY
-		INSERT INTO BdiExamen.dbo.tblExamen (idExamen, Nombre, Decripcion)
+		INSERT INTO BdiExamen.dbo.tblExamen (idExamen, Nombre, Descripcion)
 		VALUES (@ID, @Nombre, @Descripcion);
         SELECT 0 AS ReturnCode, 'Registro insertado satisfactoriamente' AS ErrorDescription
 	END TRY
