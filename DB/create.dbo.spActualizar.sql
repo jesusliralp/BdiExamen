@@ -16,10 +16,10 @@ BEGIN
 			Descripcion = @Descripcion
 		WHERE
 			idExamen = @ID;
-		SELECT 0 AS ReturnCode, 'Registro actualizado satisfactoriamente' AS ErrorDescription
+		SELECT 0 AS ReturnCode, 'Registro actualizado satisfactoriamente' AS Description
 	END TRY
 	BEGIN CATCH
-		SELECT @@ERROR AS ReturnCode, ERROR_MESSAGE() AS ErrorDescription
+		SELECT @@ERROR AS ReturnCode, ERROR_MESSAGE() AS Description
 	END CATCH
 END
 GO
