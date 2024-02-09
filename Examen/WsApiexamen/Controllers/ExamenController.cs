@@ -40,8 +40,8 @@ namespace WsApiexamen.Controllers
             }
         }
 
-        [HttpPatch("ActualizarExamen")]
-        public IActionResult Patch(Examen examenDto)
+        [HttpPut("ActualizarExamen")]
+        public IActionResult Update(Examen examenDto)
         {
             try
             {
@@ -99,16 +99,16 @@ namespace WsApiexamen.Controllers
         }
 
         [HttpGet("ConsultarExamen")]
-        public IActionResult Get(int id)
+        public IActionResult Get(int? Id, string? Nombre, string? Descripcion)
         {
-            Examen? examen = _context.Examenes.Find(id);
+            IEnumerable<Examen> examenes = _context.Examenes.Where(e => (e.IdExamen == Id || Id == null) || e.Nombre != null && e.Nombre.Contains(Nombre) || e.Descripcion != null && e.Descripcion.Contains(Descripcion));
 
-            if (examen is null)
+            if (examenes is null)
             {
                 return NotFound();
             }
 
-            return Ok(new { examen });
+            return Ok(examenes);
         }
     }
 }
